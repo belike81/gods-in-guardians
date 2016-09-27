@@ -1,4 +1,4 @@
-class RailsBungieWrapper
+class BungieClientWrapper
   class << self
     def api_key=(value)
       @api_key = value
