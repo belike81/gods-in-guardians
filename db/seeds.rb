@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "#{Rails.root}/lib/api_wrapper"
+
+# Get initial users from GGS
+
+GGS_USERNAMES = %w(belike81 kasta71 majki_pl ouara_of_death piotrlupicki wroobel237 sarzasty ropel432)
+
+GGS_USERNAMES.each do |username|
+  user = ApiWrapper.new.get_user_by_name(username)
+  if user
+    User.create(name: user.first['displayName'], membership_id: user.first['membershipId'])
+  end
+end
