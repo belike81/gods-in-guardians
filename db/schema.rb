@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927120557) do
+ActiveRecord::Schema.define(version: 20161004075940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pvp_base_stats", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "kills"
+    t.integer  "deaths"
+    t.decimal  "kd"
+    t.integer  "suicides"
+    t.integer  "assists"
+    t.integer  "most_kills"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pvp_base_stats_on_user_id", using: :btree
+  end
+
+  create_table "pvp_kills_weapons", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "super"
+    t.integer  "granade"
+    t.integer  "melee"
+    t.integer  "auto_rifle"
+    t.integer  "fusion"
+    t.integer  "hand_canon"
+    t.integer  "machine_gun"
+    t.integer  "pulse_rifle"
+    t.integer  "rocket_launcher"
+    t.integer  "scout_rifle"
+    t.integer  "shotgun"
+    t.integer  "sniper"
+    t.integer  "side_arm"
+    t.integer  "sword"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

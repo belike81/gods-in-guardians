@@ -9,6 +9,7 @@ module Updaters
 
     def update
       character_stats = get_character_stats
+      Updaters::Pvp::BaseStats.new(users, character_stats).update
       Updaters::Pvp::WeaponKills.new(users, character_stats).update
     end
 
