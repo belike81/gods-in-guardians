@@ -1,3 +1,3 @@
-class BaseStat < ApplicationRecord
+class PvpBaseStat < ApplicationRecord
   belongs_to :user
 end
