@@ -1,2 +1,5 @@
 module UsersHelper
+  def calculate_percentage_of_kills(user, stat)
+    number_to_percentage((user.send("pvp_kills_weapon_#{stat.to_s}")/user.pvp_base_stat_kills.to_f)*100, precision: 1)
+  end
 end
