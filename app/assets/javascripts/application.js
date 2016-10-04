@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap
+//= require datatables.min
+//= require users
 //= require_tree .
