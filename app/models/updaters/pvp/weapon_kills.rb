@@ -5,7 +5,7 @@ class Updaters::Pvp::WeaponKills
 
   def update
     @users.each do |user|
-      user.pvp_kills_weapon.destroy
+      user.pvp_kills_weapon.destroy if user.pvp_kills_weapon
       ::PvpKillsWeapon.create({
                               user: user,
                               super: @stats[user.id]['mergedAllCharacters']['results']['allPvP']['allTime']['weaponKillsSuper']['basic']['value'],
