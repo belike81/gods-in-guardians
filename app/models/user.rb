@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :pve_base_stat
   has_one :pvp_base_stat
   has_one :pvp_kills_weapon
 
@@ -8,6 +9,13 @@ class User < ApplicationRecord
   delegate :assists, to: :pvp_base_stat, prefix: true, allow_nil: true
   delegate :most_kills, to: :pvp_base_stat, prefix: true, allow_nil: true
   delegate :suicides, to: :pvp_base_stat, prefix: true, allow_nil: true
+
+  delegate :kills, to: :pve_base_stat, prefix: true, allow_nil: true
+  delegate :deaths, to: :pve_base_stat, prefix: true, allow_nil: true
+  delegate :kd, to: :pve_base_stat, prefix: true, allow_nil: true
+  delegate :assists, to: :pve_base_stat, prefix: true, allow_nil: true
+  delegate :most_kills, to: :pve_base_stat, prefix: true, allow_nil: true
+  delegate :suicides, to: :pve_base_stat, prefix: true, allow_nil: true
 
   delegate :super, to: :pvp_kills_weapon, prefix: true, allow_nil: true
   delegate :granade, to: :pvp_kills_weapon, prefix: true, allow_nil: true
