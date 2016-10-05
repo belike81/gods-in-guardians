@@ -18,18 +18,18 @@
 
 <div class="tab-content">
   <div class="tab-pane active" id="base" role="tabpanel">
-    <%= render 'pvp_base_stats_table', users: @users %>
+    <%= render partial: 'base_stats_table', locals: { users: @users, type: @type } %>
   </div>
   <div class="tab-pane" id="ability" role="tabpanel">
-    <%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(super granade melee) } %>
+    <%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(super granade melee), type: @type} %>
   </div>
   <div class="tab-pane" id="primary" role="tabpanel">
-    <%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(auto_rifle hand_canon scout_rifle pulse_rifle) } %>
+    <%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(auto_rifle hand_canon scout_rifle pulse_rifle), type: @type } %>
   </div>
   <div class="tab-pane" id="secondary" role="tabpanel">
-    <%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(shotgun sniper side_arm fusion) } %>
+    <%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(shotgun sniper side_arm fusion), type: @type } %>
   </div>
   <div class="tab-pane" id="secondary" role="tabpanel">
-    <%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(machine_gun rocket_launcher sword) } %>
+    <%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(machine_gun rocket_launcher sword), type: @type } %>
   </div>
 </div>

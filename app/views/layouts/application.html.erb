@@ -12,8 +12,8 @@
     <div class="container">
       <nav class="navbar navbar-dark bg-inverse">
       <div class="nav navbar-nav">
-        <a class="nav-item nav-link" href="#">Pvp</a>
-        <a class="nav-item nav-link" href="#">Pve</a>
+        <%= link_to 'PvP', users_path(type: 'pvp'), class: "nav-item nav-link #{'active' if @type == 'pvp'}" %>
+        <%= link_to 'PvE', users_path(type: 'pve'), class: "nav-item nav-link #{'active' if @type == 'pve'}" %>
         </div>
       </nav>
       <%= yield %>

@@ -13,7 +13,7 @@
     <tr>
       <td><%= user.name %></td>
       <% keys.each do|key| %>
-        <td><%= user.send("pvp_kills_weapon_#{key}") %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, key) %>)</small></td>
+        <td><%= user.send("#{type}_kills_weapon_#{key}") %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, key, type) %>)</small></td>
       <% end %>
       <td><%= user.pvp_base_stat_kills %></td>
     </tr>
