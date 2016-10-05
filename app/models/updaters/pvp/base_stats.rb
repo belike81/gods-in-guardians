@@ -5,6 +5,7 @@ class Updaters::Pvp::BaseStats
 
   def update
     @users.each do |user|
+      user.pvp_base_stat.destroy
       ::PvpBaseStat.create({
                             user: user,
                             kills: @stats[user.id]['mergedAllCharacters']['results']['allPvP']['allTime']['kills']['basic']['value'],
