@@ -11,6 +11,7 @@ class Updaters::Base
     Updaters::Pvp::BaseStats.new(@users, character_stats).update
     Updaters::Pvp::WeaponKills.new(@users, character_stats).update
     Updaters::Pve::BaseStats.new(@users, character_stats).update
+    Updaters::Pve::WeaponKills.new(@users, character_stats).update
   end
 
   private
