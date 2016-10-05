@@ -1,137 +1,19 @@
 <h3>PvP Base Stats</h3>
 <hr>
-
-<table class="table table-striped">
-  <thead class="table-inverse">
-    <tr>
-      <th>Guardian name</th>
-      <th>K/D</th>
-      <th>Most kills</th>
-      <th>Kills</th>
-      <th>Deaths</th>
-      <th>Assists</th>
-      <th>Suicides</th>
-    </tr>
-  </thead>
-  <tbody class="table-hover">
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= number_to_human user.pvp_base_stat_kd, precision: 3 %></td>
-      <td><%= user.pvp_base_stat_most_kills %></td>
-      <td><%= user.pvp_base_stat_kills %></td>
-      <td><%= user.pvp_base_stat_deaths %></td>
-      <td><%= user.pvp_base_stat_assists %></td>
-      <td><%= user.pvp_base_stat_suicides %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render 'pvp_base_stats_table', users: @users %>
 
 <h3>PvP Ability Kills</h3>
 <hr>
-
-<table class="table table-striped">
-  <thead class="table-inverse">
-    <tr>
-      <th>Guardian name</th>
-      <th>Super</th>
-      <th>Granade</th>
-      <th>Melee</th>
-      <th>Kills</th>
-    </tr>
-  </thead>
-  <tbody class="table-hover">
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.pvp_kills_weapon_super %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :super) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_granade %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :granade) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_melee %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :melee) %>)</small></td>
-      <td><%= user.pvp_base_stat_kills %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(super granade melee) } %>
 
 <h3>PvP Primary Kills</h3>
 <hr>
-
-<table class="table table-striped">
-  <thead class="table-inverse">
-    <tr>
-      <th>Guardian name</th>
-      <th>Auto Rifle</th>
-      <th>Hand Canon</th>
-      <th>Scout Rifle</th>
-      <th>Pulse Rifle</th>
-      <th>Kills</th>
-    </tr>
-  </thead>
-  <tbody class="table-hover">
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.pvp_kills_weapon_auto_rifle %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :auto_rifle) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_hand_canon %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :hand_canon) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_scout_rifle %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :scout_rifle) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_pulse_rifle %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :pulse_rifle) %>)</small></td>
-      <td><%= user.pvp_base_stat_kills %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(auto_rifle hand_canon scout_rifle pulse_rifle) } %>
 
 <h3>PvP Secondary Kills</h3>
 <hr>
-
-<table class="table table-striped">
-  <thead class="table-inverse">
-    <tr>
-      <th>Guardian name</th>
-      <th>Shotgun</th>
-      <th>Sniper</th>
-      <th>Sidearm</th>
-      <th>Fusion</th>
-      <th>Kills</th>
-    </tr>
-  </thead>
-  <tbody class="table-hover">
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.pvp_kills_weapon_shotgun %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :shotgun) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_sniper %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :sniper) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_side_arm %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :side_arm) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_fusion %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :fusion) %>)</small></td>
-      <td><%= user.pvp_base_stat_kills %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(shotgun sniper side_arm fusion) } %>
 
 <h3>PvP Heavy Kills</h3>
 <hr>
-
-<table class="table table-striped">
-  <thead class="table-inverse">
-    <tr>
-      <th>Guardian name</th>
-      <th>Machine Gun</th>
-      <th>Rocket Launcher</th>
-      <th>Sword</th>
-      <th>Kills</th>
-    </tr>
-  </thead>
-  <tbody class="table-hover">
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.pvp_kills_weapon_machine_gun %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :machine_gun) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_rocket_launcher %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :rocket_launcher) %>)</small></td>
-      <td><%= user.pvp_kills_weapon_sword %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, :sword) %>)</small></td>
-      <td><%= user.pvp_base_stat_kills %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: 'weapon_kills_table', locals: { users: @users, keys: %w(machine_gun rocket_launcher sword) } %>

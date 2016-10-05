@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead class="table-inverse">
+    <tr>
+      <th>Guardian name</th>
+      <% keys.each do |key| %>
+        <th><%= key.humanize.upcase_first %></th>
+      <% end %>
+      <th>Kills</th>
+    </tr>
+  </thead>
+  <tbody class="table-hover">
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <% keys.each do|key| %>
+        <td><%= user.send("pvp_kills_weapon_#{key}") %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, key) %>)</small></td>
+      <% end %>
+      <td><%= user.pvp_base_stat_kills %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

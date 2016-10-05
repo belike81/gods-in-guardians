@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead class="table-inverse">
+    <tr>
+      <th>Guardian name</th>
+      <th>K/D</th>
+      <th>Most kills</th>
+      <th>Kills</th>
+      <th>Deaths</th>
+      <th>Assists</th>
+      <th>Suicides</th>
+    </tr>
+  </thead>
+  <tbody class="table-hover">
+  <% users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= number_to_human user.pvp_base_stat_kd, precision: 3 %></td>
+      <td><%= user.pvp_base_stat_most_kills %></td>
+      <td><%= user.pvp_base_stat_kills %></td>
+      <td><%= user.pvp_base_stat_deaths %></td>
+      <td><%= user.pvp_base_stat_assists %></td>
+      <td><%= user.pvp_base_stat_suicides %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
