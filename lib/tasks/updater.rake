@@ -6,4 +6,11 @@ namespace :updater do
     puts "Update completed!"
   end
 
+  desc "Get charcters"
+  task characters_import: :environment do
+    puts "Updating user characters"
+    Updaters::Character.new(User.all).update
+    puts "Update completed!"
+  end
+
 end
