@@ -9,11 +9,11 @@ class Updaters::Character
   def update
     stats = get_character_stats
     @users.each do |user|
-      user.characters.destroy if user.characters
+      user.characters.destroy_all if user.characters
       stats[user.id]['data']['characters'].each do |character_stats|
         ::Character.create({
                              user: user,
-                             character_id: character_stats['characterId']
+                             character_id: character_stats['characterBase']['characterId']
                            })
       end
     end

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :characters
+  has_many :activities
 
   has_one :pve_base_stat
   has_one :pve_kills_weapon
