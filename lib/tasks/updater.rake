@@ -13,4 +13,11 @@ namespace :updater do
     puts "Update completed!"
   end
 
+  desc "Get activities"
+  task activities_import: :environment do
+    puts "Updating user activities"
+    Updaters::Activity.new(User.all).update
+    puts "Update completed!"
+  end
+
 end

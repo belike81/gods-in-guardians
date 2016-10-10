@@ -18,4 +18,8 @@ class ApiWrapper
   def get_activity_stats(membership_id, character_id)
     @client.get_response("Destiny/Stats/AggregateActivityStats/2/#{membership_id}/#{character_id}")
   end
+
+  def get_activity_details(hash)
+    @client.get_response("Destiny/Manifest/Activity/#{hash}")
+  end
 end
