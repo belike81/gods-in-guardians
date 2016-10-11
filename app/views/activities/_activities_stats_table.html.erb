@@ -1,4 +1,8 @@
-<h3><%= user.name %></h3>
+<%= form_tag do %>
+  <div class="form-group">
+    <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :name, @user.id), class: 'form-control', onchange: "this.form.submit();" %>
+  </div>
+<% end %>
 
 <hr>
 <table class="table table-striped">

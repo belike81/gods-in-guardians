@@ -17,4 +17,5 @@
 //= require bootstrap
 //= require datatables.min
 //= require users
+//= require activities
 //= require_tree .
