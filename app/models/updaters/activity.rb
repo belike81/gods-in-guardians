@@ -16,6 +16,7 @@ class Updaters::Activity
                               user: user,
                               character: character,
                               activity_name: get_activity_name(activity_stats['activityHash']),
+                              activity_type: get_activity_type(activity_stats['activityHash']),
                               activity_hash: activity_stats['activityHash'],
                               times_completed: activity_stats['values']['activityCompletions']['basic']['value'],
                               kills: activity_stats['values']['activityKills']['basic']['value'],
@@ -32,8 +33,13 @@ class Updaters::Activity
   private
 
   def get_activity_name(hash)
-    ::ActivityName.where(activity_hash: hash).first_or_create do |activity_name|
-      activity_name.value = Updaters::ActivityName.new(hash).update
+    ::ActivityName.where(activity_hash: hash).first
+  end
+
+  def get_activity_type(hash)
+    activity_name = ::ActivityName.where(activity_hash: hash).first
+    if activity_name
+      ::ActivityType.where(activity_type_hash: activity_name.activity_type_hash).first
     end
   end
 

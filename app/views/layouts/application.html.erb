@@ -14,6 +14,7 @@
       <div class="nav navbar-nav">
         <%= link_to 'PvP', users_path(type: 'pvp'), class: "nav-item nav-link #{'active' if @type == 'pvp'}" %>
         <%= link_to 'PvE', users_path(type: 'pve'), class: "nav-item nav-link #{'active' if @type == 'pve'}" %>
+        <%= link_to 'Activities', activities_path, class: "nav-item nav-link #{'active' if @type == 'activities'}" %>
         </div>
       </nav>
       <%= yield %>
