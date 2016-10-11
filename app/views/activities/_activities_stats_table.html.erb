@@ -25,7 +25,7 @@
       <td><%= activity.assists %></td>
       <td><%= calculate_kd(activity.kills, activity.deaths) %></td>
       <td><%= activity.wins %></td>
-      <td><%= activity.seconds_played %></td>
+      <td><%= distance_of_time_in_words activity.seconds_played %></td>
     </tr>
   <% end %>
   </tbody>
