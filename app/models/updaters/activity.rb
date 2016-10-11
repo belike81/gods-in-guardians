@@ -7,12 +7,12 @@ class Updaters::Activity
   end
 
   def update
+    ::Activity.destroy_all
     stats = get_activity_stats
     @users.each do |user|
-      ::Activity.destroy_all
       user.characters.each do |character|
         stats[user.id][character.id]['data']['activities'].each do |activity_stats|
-          ::Activity.create({
+          ::Activity.create!({
                               user: user,
                               character: character,
                               activity_name: get_activity_name(activity_stats['activityHash']),
@@ -34,13 +34,17 @@ class Updaters::Activity
   private
 
   def get_activity_name(hash)
-    ::ActivityName.where(activity_hash: hash).first
+    ::ActivityName.where(activity_hash: hash).first_or_create do |activity_name|
+      activity_name.value = 'No name'
+    end
   end
 
   def get_activity_type(hash)
     activity_name = ::ActivityName.where(activity_hash: hash).first
     if activity_name
-      ::ActivityType.where(activity_type_hash: activity_name.activity_type_hash).first
+      ::ActivityType.where(activity_type_hash: activity_name.activity_type_hash).first_or_create do |activity_type|
+        activity_type.value = 'No name'
+      end
     end
   end
 
