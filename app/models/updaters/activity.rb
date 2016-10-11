@@ -9,7 +9,7 @@ class Updaters::Activity
   def update
     stats = get_activity_stats
     @users.each do |user|
-      user.activities.destroy_all if user.activities
+      ::Activity.destroy_all
       user.characters.each do |character|
         stats[user.id][character.id]['data']['activities'].each do |activity_stats|
           ::Activity.create({
