@@ -23,7 +23,8 @@ class Updaters::Activity
                               deaths: activity_stats['values']['activityDeaths']['basic']['value'],
                               assists: activity_stats['values']['activityAssists']['basic']['value'],
                               kd: activity_stats['values']['activityKillsDeathsRatio']['basic']['value'],
-                              wins: activity_stats['values']['activityWins']['basic']['value']
+                              wins: activity_stats['values']['activityWins']['basic']['value'],
+                              seconds_played: activity_stats['values']['activitySecondsPlayed']['basic']['value']
                             })
         end
       end
