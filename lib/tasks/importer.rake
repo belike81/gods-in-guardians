@@ -12,7 +12,7 @@ namespace :importer do
       ActivityName.create({
                             activity_hash: hash[:activityHash],
                             activity_type_hash: hash[:activityTypeHash],
-                            value: hash[:activityTypeName]
+                            value: hash[:activityName]
                           })
     end
     puts "Import completed!"

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :characters
-  has_many :activities
+  has_many :activities, -> { select('DISTINCT ON (activities.activity_name_id) activities.activity_name_id, activities.id, s.kills, s.deaths, s.times_completed, s.assists, s.wins, s.seconds_played').joins("JOIN(SELECT activity_name_id, SUM(kills) AS kills, SUM(deaths) AS deaths, SUM(times_completed) AS times_completed, SUM(assists) AS assists, SUM(wins) AS wins, SUM(seconds_played) AS seconds_played FROM activities GROUP BY activity_name_id) AS s ON activities.activity_name_id = s.activity_name_id") }
 
   has_one :pve_base_stat
   has_one :pve_kills_weapon

@@ -1,30 +1,17 @@
-<h3><%= @user.name %></h3>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#pvp" role="tab">Pvp</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#pve" role="tab">Pve</a>
+  </li>
+</ul>
 
-<table class="table table-striped">
-  <thead class="table-inverse">
-    <tr>
-      <th>Activity name</th>
-      <th>Times completed</th>
-      <th>Kills</th>
-      <th>Deaths</th>
-      <th>Assists</th>
-      <th>K/D</th>
-      <th>Wins</th>
-      <th>Time spent</th>
-    </tr>
-  </thead>
-  <tbody class="table-hover">
-  <% @user.activities.each do |activity|  %>
-    <tr>
-      <td><%= activity.activity_name.value %></td>
-      <td><%= activity.times_completed %></td>
-      <td><%= activity.kills %></td>
-      <td><%= activity.deaths %></td>
-      <td><%= activity.assists %></td>
-      <td><%= number_to_human activity.kd, precision: 3 %></td>
-      <td><%= activity.wins %></td>
-      <td><%= activity.seconds_played %></td>
-    </tr>
-  <% end %>
-    </tbody>
-  </table>
+<div class="tab-content">
+  <div class="tab-pane active" id="pvp" role="tabpanel">
+    <%= render partial: 'activities_stats_table', locals: { user: @user, type: 'pvp' } %>
+  </div>
+  <div class="tab-pane" id="pve" role="tabpanel">
+    <%= render partial: 'activities_stats_table', locals: { user: @user, type: 'pve' } %>
+  </div>
+</div>
