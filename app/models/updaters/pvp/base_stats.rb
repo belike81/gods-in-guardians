@@ -5,7 +5,7 @@ class Updaters::Pvp::BaseStats
 
   def update
     @users.each do |user|
-      unless @stats[user.id].nil? || @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvp'].nil?
+      unless @stats[user.id].nil? || @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP'].empty?
         user.pvp_base_stat.destroy if user.pvp_base_stat
         ::PvpBaseStat.create({
                                user: user,
