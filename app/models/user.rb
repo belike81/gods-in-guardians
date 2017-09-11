@@ -10,9 +10,11 @@ class User < ApplicationRecord
   delegate :kills, to: :pvp_base_stat, prefix: true, allow_nil: true
   delegate :deaths, to: :pvp_base_stat, prefix: true, allow_nil: true
   delegate :kd, to: :pvp_base_stat, prefix: true, allow_nil: true
+  delegate :kills_assists, to: :pvp_base_stat, prefix: true, allow_nil: true
   delegate :assists, to: :pvp_base_stat, prefix: true, allow_nil: true
   delegate :most_kills, to: :pvp_base_stat, prefix: true, allow_nil: true
   delegate :suicides, to: :pvp_base_stat, prefix: true, allow_nil: true
+  delegate :games, to: :pvp_base_stat, prefix: true, allow_nil: true
 
   delegate :kills, to: :pve_base_stat, prefix: true, allow_nil: true
   delegate :deaths, to: :pve_base_stat, prefix: true, allow_nil: true

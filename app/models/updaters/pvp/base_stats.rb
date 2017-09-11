@@ -10,6 +10,8 @@ class Updaters::Pvp::BaseStats
         ::PvpBaseStat.create({
                                user: user,
                                kills: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['kills']['basic']['value'],
+                               kills_assists: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['killsDeathsAssists']['basic']['value'],
+                               games: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['activitiesEntered']['basic']['value'],
                                deaths: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['deaths']['basic']['value'],
                                kd: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['killsDeathsRatio']['basic']['value'],
                                suicides: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['suicides']['basic']['value'],
