@@ -15,13 +15,7 @@ class BungieClientWrapper
       return @client unless @client.nil?
 
       @client = BungieClient::Client.new(
-        :api_key => @api_key,
-        :cache => BungieClient::Cache.new(
-          :ttl    => @ttl,
-          :client => Rails.cache,
-          :get    => Proc.new { |c, key| c.read key },
-          :set    => Proc.new { |c, key, value, ttl| c.write key, value, expires_in: ttl }
-        )
+        api_key: @api_key
       )
     end
   end

@@ -24,7 +24,8 @@ WORKDIR $APP_HOME
 
 # Configure production environment variables
 ENV RAILS_ENV=development \
-    RACK_ENV=development
+    RACK_ENV=development \
+    BUNGIE_API_KEY=9374e9eb174e4c2d97413ca9568bc54c
 
 # Expose port 3000 from the container
 EXPOSE 3000
