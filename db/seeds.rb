@@ -6,7 +6,7 @@ GGS_USERNAMES = %w(belike81 kasta71 majki_pl ouara_of_death piotrlupicki wroobel
 
 GGS_USERNAMES.each do |username|
   user = ApiWrapper.new.get_user_by_name(username)
-  if user && !User.where(name: user.first['displayName']).first
-    User.create(name: user.first['displayName'], membership_id: user.first['membershipId'])
+  if user && !User.where(name: user['Response'].first['displayName']).first
+    User.create(name: user['Response'].first['displayName'], membership_id: user['Response'].first['membershipId'])
   end
 end

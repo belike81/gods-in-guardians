@@ -4,15 +4,15 @@ class ApiWrapper
   end
 
   def get_user_by_name(name)
-    @client.get("/Destiny2/SearchDestinyPlayer/2/#{name}")
+    @client.get("Destiny2/SearchDestinyPlayer/2/#{name}")
   end
 
   def get_account_stats(membership_id)
-    @client.get("/Destiny2/Stats/Account/2/#{membership_id}")
+    @client.get("Destiny2/2/Account/#{membership_id}/Stats")
   end
 
   def get_account_details(membership_id)
-    @client.get("/Destiny2/2/Account/#{membership_id}")
+    @client.get("Destiny2/2/Profile/#{membership_id}")
   end
 
   def get_activity_stats(membership_id, character_id)
