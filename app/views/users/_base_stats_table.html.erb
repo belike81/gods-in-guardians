@@ -5,6 +5,7 @@
       <th>K/D</th>
       <th>KA/D</th>
       <th>Kills</th>
+      <th>Kills per game</th>
       <th>Assists</th>
       <th>Deaths</th>
       <th>Most kills</th>
@@ -19,6 +20,7 @@
       <td><%= number_to_human user.send("#{type}_base_stat_kd"), precision: 3 %></td>
       <td><%= number_to_human user.send("#{type}_base_stat_kills_assists"), precision: 3 %></td>
       <td><%= user.send("#{type}_base_stat_kills") %></td>
+      <td><%= calculate_avarage(user.send("#{type}_base_stat_kills"), user.send("#{type}_base_stat_games")) %></td>
       <td><%= user.send("#{type}_base_stat_assists") %></td>
       <td><%= user.send("#{type}_base_stat_deaths") %></td>
       <td><%= user.send("#{type}_base_stat_most_kills") %></td>

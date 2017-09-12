@@ -1,6 +1,19 @@
 module UsersHelper
-  def calculate_percentage_of_kills(user, stat, type='pvp')
-    "100%"
-    # number_to_percentage((user.send("#{type}_kills_weapon_#{stat.to_s}")/user.send("#{type}_base_stat_kills").to_f)*100, precision: 1)
+
+  def calculate_avarage(kills, games)
+    if kills.nil? || games.nil?
+      ''
+    else
+      result = kills / games
+      helper.number_to_human(result, precision: 3)
+    end
+  end
+
+  private
+
+  def helper
+    @helper ||= Class.new do
+      include ActionView::Helpers::NumberHelper
+    end.new
   end
 end
