@@ -25,10 +25,13 @@ WORKDIR $APP_HOME
 # Configure production environment variables
 ENV RAILS_ENV=development \
     RACK_ENV=development \
+    DISCORD_CLIENT_ID=364422664447721473 \
+    DISCORD_TOKEN=MzY0NDIyNjY0NDQ3NzIxNDcz.DLTvZQ.bJWJwGLpEp565nRhgX3ifTzLvG8 \
     BUNGIE_API_KEY=9374e9eb174e4c2d97413ca9568bc54c
 
 # Expose port 3000 from the container
 EXPOSE 3000
 
 # Run puma server by default
-CMD ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
+# CMD ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "s"]

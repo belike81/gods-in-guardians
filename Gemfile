@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bungie_client'
 gem 'mechanize'
 gem 'redis'
+gem 'discordrb'
 
 gem 'bootstrap', '~> 4.0.0.beta'
 source 'https://rails-assets.org' do
