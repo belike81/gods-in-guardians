@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-hover table-inverse sortable">
   <thead>
     <tr>
       <th>Guardian name</th>
@@ -8,25 +8,27 @@
       <th>Kills per game</th>
       <th>Assists</th>
       <th>Deaths</th>
+      <th>Deaths per game</th>
       <th>Most kills</th>
       <th>Suicides</th>
       <th>Games</th>
     </tr>
   </thead>
   <tbody class="table-hover">
-  <% users.each do |user| %>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= number_to_human user.send("#{type}_base_stat_kd"), precision: 3 %></td>
-      <td><%= number_to_human user.send("#{type}_base_stat_kills_assists"), precision: 3 %></td>
-      <td><%= user.send("#{type}_base_stat_kills") %></td>
-      <td><%= calculate_avarage(user.send("#{type}_base_stat_kills"), user.send("#{type}_base_stat_games")) %></td>
-      <td><%= user.send("#{type}_base_stat_assists") %></td>
-      <td><%= user.send("#{type}_base_stat_deaths") %></td>
-      <td><%= user.send("#{type}_base_stat_most_kills") %></td>
-      <td><%= user.send("#{type}_base_stat_suicides") %></td>
-      <td><%= user.send("#{type}_base_stat_games") %></td>
-    </tr>
-  <% end %>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= number_to_human user.send("#{type}_base_stat_kd"), precision: 3 %></td>
+        <td><%= number_to_human user.send("#{type}_base_stat_kills_assists"), precision: 3 %></td>
+        <td><%= user.send("#{type}_base_stat_kills") %></td>
+        <td><%= calculate_avarage(user.send("#{type}_base_stat_kills"), user.send("#{type}_base_stat_games")) %></td>
+        <td><%= user.send("#{type}_base_stat_assists") %></td>
+        <td><%= user.send("#{type}_base_stat_deaths") %></td>
+        <td><%= calculate_avarage(user.send("#{type}_base_stat_deaths"), user.send("#{type}_base_stat_games")) %></td>
+        <td><%= user.send("#{type}_base_stat_most_kills") %></td>
+        <td><%= user.send("#{type}_base_stat_suicides") %></td>
+        <td><%= user.send("#{type}_base_stat_games") %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

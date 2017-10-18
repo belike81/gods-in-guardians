@@ -19,6 +19,8 @@ gem 'bungie_client'
 gem 'mechanize'
 gem 'redis'
 gem 'discordrb'
+gem 'momentjs-rails'
+gem 'rails_bootstrap_sortable'
 
 gem 'bootstrap', '~> 4.0.0.beta'
 source 'https://rails-assets.org' do

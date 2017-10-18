@@ -16,6 +16,8 @@
 //= require tether
 //= require bootstrap
 //= require datatables.min
+//= require moment
 //= require users
 //= require activities
+//= require bootstrap-sortable
 //= require_tree .

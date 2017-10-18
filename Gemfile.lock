@@ -119,6 +119,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.12.2)
     multipart-post (2.0.0)
     net-http-digest_auth (1.4.1)
@@ -158,6 +160,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_bootstrap_sortable (2.0.1)
+      momentjs-rails (>= 2.8.3)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -235,11 +239,13 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mechanize
+  momentjs-rails
   pg (~> 0.21)
   pry
   puma (~> 3.10.0)
   rails (~> 5.1.4)
   rails-assets-tether (>= 1.1.0)!
+  rails_bootstrap_sortable
   redis
   sass-rails (~> 5.0)
   turbolinks (~> 5)
