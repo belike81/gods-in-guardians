@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require tether
-//= require popper
 //= require bootstrap
 //= require datatables.min
 //= require moment
