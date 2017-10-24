@@ -5,6 +5,6 @@ class Event < ApplicationRecord
   validates :start_time, presence: true
   validates :limit, presence: true, numericality: { only_integer: true }
 
-  scope :current, -> { where('start_date > now()') }
+  scope :current, -> { where('start_date >= current_date') }
   scope :by_closest, -> { order('start_date ASC') }
 end
