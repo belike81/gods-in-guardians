@@ -7,4 +7,5 @@ class Event < ApplicationRecord
 
   scope :current, -> { where('start_date >= current_date') }
   scope :by_closest, -> { order('start_date ASC, start_time ASC') }
+  scope :for_user, ->(user) { includes(:event_users).where("event_users.name = ?", user).references(:event_users) }
 end

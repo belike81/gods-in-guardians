@@ -81,6 +81,19 @@ class BotWrapper
       end
     end
 
+    @client.command :moje do |event|
+      my_events = Event.for_user(event.user.name).current.by_closest
+      if my_events.count > 0
+        events_list = Array.new
+        my_events.each_with_index do |list_event, index|
+          events_list << "#{index+1}. #{event_title(list_event)}"
+        end
+
+        "#{event.user.name} jest zapisany do:\n" + events_list.join("\n")
+      else
+        "Nie jesteś zapisany do żadnego wydarzenia"
+      end
+    end
     @client.run :async
   end
 
