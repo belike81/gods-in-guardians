@@ -17,7 +17,7 @@ class BotWrapper
 
     @client.command :lista do |event|
       events_list = Array.new
-      Event.all.each_with_index do |list_event, index|
+      Event.current.by_closest.each_with_index do |list_event, index|
         events_list << "#{index+1}. #{event_title(list_event)}"
       end
       if events_list.count > 0
