@@ -15,6 +15,16 @@ class BotWrapper
       end
     end
 
+    @client.command :anuluj do |event_id|
+      found_event = Event.find(event_id)
+      if found_event
+        found_event.destroy
+        "Usunięto wydarzenie #{found_event.name}"
+      else
+        "Nie udało się usunąć wydarzenia #{found_event.name}"
+      end
+    end
+
     @client.command :lista do |event|
       events_list = Array.new
       Event.current.by_closest.each_with_index do |list_event, index|
