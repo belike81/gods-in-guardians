@@ -9,7 +9,7 @@ class BotWrapper
       created_event = Event.create(name: name, start_date: start_date, start_time: start_time, limit: limit)
       if created_event.valid?
         EventUser.create(name: event.user.name, event_id: created_event.id)
-        "Dodano wydarzenie #{name}"
+        "Dodano wydarzenie #{name}, ID - #{created_event.id}"
       else
         "Nie udało się dodać wydarzenia #{name}" + created_event.errors.full_messages.join("\n")
       end
