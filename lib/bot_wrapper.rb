@@ -25,7 +25,7 @@ class BotWrapper
       end
     end
 
-    @client.command :lista do |event|
+    @client.command :lista do |event, event_id|
       events_list = Array.new
       Event.current.by_closest.each_with_index do |list_event, index|
         events_list << "#{index+1}. #{event_title(list_event)}"
