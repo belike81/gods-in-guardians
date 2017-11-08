@@ -15,7 +15,7 @@ class BotWrapper
       end
     end
 
-    @client.command :anuluj do |event_id|
+    @client.command :anuluj do |event, event_id|
       found_event = Event.find(event_id)
       if found_event
         found_event.destroy
@@ -25,7 +25,7 @@ class BotWrapper
       end
     end
 
-    @client.command :lista do |event, event_id|
+    @client.command :lista do |event|
       events_list = Array.new
       Event.current.by_closest.each_with_index do |list_event, index|
         events_list << "#{index+1}. #{event_title(list_event)}"
