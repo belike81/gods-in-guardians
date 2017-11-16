@@ -2,7 +2,7 @@ require "#{Rails.root}/lib/api_wrapper"
 
 # Get initial users from GGS
 
-GGS_USERNAMES = %w(belike81 kasta71 majki_pl ouara_of_death piotrlupicki wroobel237 sarzasty ropel432 czarny00pl w1chajster radykalnyed threepwood__)
+GGS_USERNAMES = %w(belike81 belike81#2321 kasta71 majki_pl ouara_of_death piotrlupicki wroobel237 sarzasty ropel432 czarny00pl w1chajster radykalnyed threepwood__)
 
 GGS_USERNAMES.each do |username|
   user = ApiWrapper.new.get_user_by_name(username)
