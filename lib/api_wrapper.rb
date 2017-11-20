@@ -3,8 +3,8 @@ class ApiWrapper
     @client = client
   end
 
-  def get_user_by_name(name)
-    @client.get("Destiny2/SearchDestinyPlayer/2/#{name}")
+  def get_user_by_name(name, platform = 2)
+    @client.get("Destiny2/SearchDestinyPlayer/#{platform}/#{name}")
   end
 
   def get_account_stats(membership_id)
