@@ -19,7 +19,7 @@ GGS_USERNAMES = [
 ]
 
 GGS_USERNAMES.each do |username|
-  user = ApiWrapper.new.get_user_by_name(username.name, username.platform)
+  user = ApiWrapper.new.get_user_by_name(username[:name], username[:platform])
   if user && !User.where(name: user['Response'].first['displayName']).first
     User.create(name: user['Response'].first['displayName'], membership_id: user['Response'].first['membershipId'])
   end
