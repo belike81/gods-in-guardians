@@ -4,7 +4,7 @@ require "#{Rails.root}/lib/api_wrapper"
 
 GGS_USERNAMES = [
     { name: 'belike81', platform: 2 },
-    { name: 'belike81#2321', platform: 4 },
+    { name: 'belike81%232321', platform: 4 },
     { name: 'kasta71', platform: 2 },
     { name: 'majki_pl', platform: 2},
     { name: 'ouara_of_death', platform: 2},
