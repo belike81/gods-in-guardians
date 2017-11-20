@@ -14,13 +14,17 @@ GGS_USERNAMES = [
     { name: 'ropel432', platform: 2},
     { name: 'czarny00pl', platform: 2},
     { name: 'w1chajster', platform: 2},
-    { name: 'radykalnyed', platform: 2},
-    { name: 'threepwood', platform: 2}
+    { name: 'radykalnyed', platform: 2}
 ]
 
 GGS_USERNAMES.each do |username|
   user = ApiWrapper.new.get_user_by_name(username[:name], username[:platform])
+  begin
   if user && !User.where(name: user['Response'].first['displayName']).first
     User.create(name: user['Response'].first['displayName'], membership_id: user['Response'].first['membershipId'])
   end
+  rescue
+    puts "Error in user creation"
+  end
+
 end
