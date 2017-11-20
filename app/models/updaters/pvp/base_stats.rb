@@ -21,7 +21,7 @@ class Updaters::Pvp::BaseStats
                              })
       end
       rescue
-        binding.pry
+        puts "Something wrong with import"
       end
     end
   end
