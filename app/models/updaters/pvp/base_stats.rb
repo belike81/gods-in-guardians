@@ -5,6 +5,7 @@ class Updaters::Pvp::BaseStats
 
   def update
     @users.each do |user|
+      begin
       unless @stats[user.id].nil? || @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP'].empty?
         user.pvp_base_stat.destroy if user.pvp_base_stat
         ::PvpBaseStat.create({
@@ -18,6 +19,9 @@ class Updaters::Pvp::BaseStats
                                assists: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['assists']['basic']['value'],
                                most_kills: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['bestSingleGameKills']['basic']['value']
                              })
+      end
+      rescue
+        binding.pry
       end
     end
   end

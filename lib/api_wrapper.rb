@@ -7,16 +7,16 @@ class ApiWrapper
     @client.get("Destiny2/SearchDestinyPlayer/#{platform}/#{name}")
   end
 
-  def get_account_stats(membership_id)
-    @client.get("Destiny2/2/Account/#{membership_id}/Stats")
+  def get_account_stats(membership_id, platform = 2)
+    @client.get("Destiny2/#{platform}/Account/#{membership_id}/Stats")
   end
 
-  def get_account_details(membership_id)
-    @client.get("Destiny2/2/Profile/#{membership_id}")
+  def get_account_details(membership_id, platform = 2)
+    @client.get("Destiny2/#{platform}/Profile/#{membership_id}")
   end
 
-  def get_activity_stats(membership_id, character_id)
-    @client.get("Destiny2/Stats/AggregateActivityStats/2/#{membership_id}/#{character_id}")
+  def get_activity_stats(membership_id, character_id, platform = 2)
+    @client.get("Destiny2/Stats/AggregateActivityStats/#{platform}/#{membership_id}/#{character_id}")
   end
 
   def get_activity_details(hash)

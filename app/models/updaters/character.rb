@@ -28,7 +28,7 @@ class Updaters::Character
   def updated_character_stats
     @stats = {}
     @users.each do |user|
-      @stats[user.id] = @api.get_account_details(user.membership_id)
+      @stats[user.id] = @api.get_account_details(user.membership_id, user.platform)
     end
     @stats
   end

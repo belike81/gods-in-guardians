@@ -57,7 +57,7 @@ class Updaters::Activity
     @users.each do |user|
       character_stats = {}
       user.characters.each do |character|
-        character_stats[character.id] = @api.get_activity_stats(user.membership_id, character.character_id)
+        character_stats[character.id] = @api.get_activity_stats(user.membership_id, character.character_id, user.platform)
       end
       @stats[user.id] = character_stats
     end
