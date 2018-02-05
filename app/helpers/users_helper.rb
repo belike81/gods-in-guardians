@@ -5,7 +5,7 @@ module UsersHelper
       ''
     else
       result = kills.to_f / games.to_f
-      helper.number_with_precision(result, precision: 3)
+      helper.number_with_precision(result, precision: 2)
     end
   end
 
