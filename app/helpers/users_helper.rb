@@ -4,8 +4,8 @@ module UsersHelper
     if kills.nil? || games.nil?
       ''
     else
-      result = kills / games
-      helper.number_to_human(result, precision: 3)
+      result = kills.to_f / games.to_f
+      helper.number_with_precision(result, precision: 3)
     end
   end
 
