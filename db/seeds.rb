@@ -8,6 +8,7 @@ GGS_USERNAMES = [
     { name: 'kasta71', platform: 2 },
     { name: 'majki_pl', platform: 2},
     { name: 'ouara_of_death', platform: 2},
+    { name: 'ouara%2639', platform: 4 },
     { name: 'piotrlupicki', platform: 2},
     { name: 'wroobel237', platform: 2},
     { name: 'sarzasty', platform: 2},
