@@ -16,7 +16,6 @@ class Updaters::Pvp::WeaponKills
             auto_rifle: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['weaponKillsAutoRifle']['basic']['value'],
             fusion: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['weaponKillsFusionRifle']['basic']['value'],
             hand_canon: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['weaponKillsHandCannon']['basic']['value'],
-            machine_gun: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['weaponKillsMachinegun']['basic']['value'],
             pulse_rifle: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['weaponKillsPulseRifle']['basic']['value'],
             rocket_launcher: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['weaponKillsRocketLauncher']['basic']['value'],
             scout_rifle: @stats[user.id]['Response']['mergedAllCharacters']['results']['allPvP']['allTime']['weaponKillsScoutRifle']['basic']['value'],
