@@ -13,6 +13,7 @@ GGS_USERNAMES = [
     { name: 'whoopie%2321265', platform: 4 },
     { name: 'wroobel237', platform: 2},
     { name: 'sarzasty', platform: 2},
+    { name: 'sarek%2321186', platform: 4 },
     { name: 'ropel432', platform: 2},
     { name: 'czarny00pl', platform: 2},
     { name: 'w1chajster', platform: 2},
