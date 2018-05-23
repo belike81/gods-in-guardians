@@ -2,7 +2,7 @@
   <thead class="table-inverse">
     <tr>
       <th>Guardian name</th>
-      <% keys.each do |key| %>
+      <% @keys.each do |key| %>
         <th><%= key.humanize.upcase_first %></th>
       <% end %>
       <th>Kills</th>
@@ -12,7 +12,7 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.name %></td>
-      <% keys.each do|key| %>
+      <% @keys.each do|key| %>
         <td><%= user.send("#{type}_kills_weapon_#{key}") %> <small class="text-muted">(<%= calculate_percentage_of_kills(user, key, type) %>)</small></td>
       <% end %>
       <td><%= user.send("#{type}_base_stat_kills") %></td>
