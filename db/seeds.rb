@@ -17,7 +17,7 @@ GGS_USERNAMES = [
     { name: 'ropel432', platform: 2},
     { name: 'czarny00pl', platform: 2},
     { name: 'w1chajster', platform: 2},
-   4{ name: 'czarny%232637', platform: 2},
+    { name: 'czarny%232637', platform: 4},
     { name: 'radykalnyed', platform: 2}
 ]
 
