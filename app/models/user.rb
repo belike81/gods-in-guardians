@@ -52,4 +52,15 @@ class User < ApplicationRecord
   delegate :sniper, to: :pve_kills_weapon, prefix: true, allow_nil: true
   delegate :side_arm, to: :pve_kills_weapon, prefix: true, allow_nil: true
   delegate :sword, to: :pve_kills_weapon, prefix: true, allow_nil: true
+
+  def platform_name
+    case platform
+    when 2
+      'PSN'
+    when 3
+      'Steam'
+    else
+      'Unknown'
+    end 
+  end
 end

@@ -11,7 +11,7 @@
   <tbody class="table-hover">
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.name %></td>
+      <td><%= "#{user.name}(#{user.platform_name})" %></td>
       <% @keys.each do|key| %>
         <td><%= user.send("#{type}_kills_weapon_#{key}") %> <small class="text-muted">(<%= calculate_avarage(user.send("#{type}_kills_weapon_#{key}"), user.send("#{type}_base_stat_kills")) %>)</small></td>
       <% end %>

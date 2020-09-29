@@ -18,7 +18,7 @@
   <tbody class="table-hover">
     <% users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= "#{user.name}(#{user.platform_name})" %></td>
         <td><%= number_to_human user.send("#{type}_base_stat_kd"), precision: 3 %></td>
         <td><%= number_to_human user.send("#{type}_base_stat_kills_assists"), precision: 3 %></td>
         <td><%= user.send("#{type}_base_stat_kills") %></td>

@@ -10,10 +10,10 @@ class Updaters::Character
     stats = get_character_stats
     @users.each do |user|
       user.characters.destroy_all if user.characters
-      stats[user.id]['data']['characters'].each do |character_stats|
+      stats[user.id]['profile']['data']['characterIds'].each do |character_id|
         ::Character.create({
                              user: user,
-                             character_id: character_stats['characterBase']['characterId']
+                             character_id: character_id
                            })
       end
     end
@@ -28,7 +28,7 @@ class Updaters::Character
   def updated_character_stats
     @stats = {}
     @users.each do |user|
-      @stats[user.id] = @api.get_account_details(user.membership_id, user.platform)
+      @stats[user.id] = @api.get_account_details(user.membership_id, user.platform).data
     end
     @stats
   end

@@ -8,7 +8,7 @@ class Updaters::ActivityName
 
   def update
     stats = get_activity_details
-    activity_name = stats ? stats['data']['activity']['activityName'] : 'No name'
+    activity_name = stats ? stats['activity']['activityName'] : 'No name'
     ::ActivityName.create({
                         activity_hash: @hash,
                         value: activity_name
@@ -22,6 +22,6 @@ class Updaters::ActivityName
   end
 
   def updated_activity_details
-    @api.get_activity_details(@hash)
+    @api.get_activity_details(@hash).data
   end
 end

@@ -11,7 +11,8 @@ class Updaters::Activity
     stats = get_activity_stats
     @users.each do |user|
       user.characters.each do |character|
-        stats[user.id][character.id]['data']['activities'].each do |activity_stats|
+        next unless stats[user.id][character.id]['activities']
+        stats[user.id][character.id]['activities'].each do |activity_stats|
           ::Activity.create!({
                               user: user,
                               character: character,
@@ -57,7 +58,7 @@ class Updaters::Activity
     @users.each do |user|
       character_stats = {}
       user.characters.each do |character|
-        character_stats[character.id] = @api.get_activity_stats(user.membership_id, character.character_id, user.platform)
+        character_stats[character.id] = @api.get_activity_stats(user.membership_id, character.character_id, user.platform).data
       end
       @stats[user.id] = character_stats
     end

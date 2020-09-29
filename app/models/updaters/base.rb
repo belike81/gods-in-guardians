@@ -23,7 +23,7 @@ class Updaters::Base
   def updated_character_stats
     @stats = {}
     @users.each do |user|
-      @stats[user.id] = @api.get_account_stats(user.membership_id, user.platform)
+      @stats[user.id] = @api.get_account_stats(user.membership_id, user.platform).data
     end
     @stats
   end
